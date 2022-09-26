@@ -4,29 +4,74 @@
     --primario:#03bb85;
     --secundario:#02aabd;
     --terciario:#757575;
+    --cuaternario:#dfe9f3;
 }
 
 html {
      font-size: 62.5%;
+     box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 body {
     font-size: 16px;
     font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--cuaternario) 0%, var(--blanco) 100%);
 }
 
-.titulo {
+h1 {
+    font-size: 3.8rem;
     text-align: center;
-    font-size: 3.8rem; 
 }
 
+h2 {
+    font-size: 2.8rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.54);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.54);
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.54);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
 .titulo span {
     font-size: 2rem;
 }
 
 .contenedor {
-    width: 120rem; 
+    max-width: 120rem; 
     margin: 0 auto;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 75%;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+    
 }
 
 .nav_bg {
@@ -35,17 +80,58 @@ body {
 
 .navegacion_principal {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .navegacion_principal {
+        flex-direction: row;
+        justify-content: space-between;
+}
 }
 
 .navegacion_principal a {
+    display: block;
+    align-items: center;
     color: var(--blanco); 
     text-decoration: none;
     font-size: 2rem;
     font-weight: bold;
     padding: 1rem;
 }
+
 .navegacion_principal a:hover {
     background-color: var(--primario);
     color: var(--negro);
+}
+
+.hero {
+    background-image: url(../images/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem ;
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6); /*Anterior*/
+    width: 100%;
+    height: 100%;
+    /*Alinear vertical y horizontalmente*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.ubicacion {
+    display: flex;
+    align-items: flex-end;
 }
